@@ -15,7 +15,7 @@ class _SplachscreenState extends State<Splachscreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(milliseconds: 1950), () {
+    Timer(const Duration(milliseconds: 2300), () {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (ctx) => Authscreen()));
     });
@@ -31,7 +31,8 @@ class _SplachscreenState extends State<Splachscreen> {
     return Scaffold(
       body: Center(
         child: Lottie.network(
-            "https://lottie.host/dcead542-b6e2-4695-9057-5225e0b1209d/GLol0fd3I9.json"),
+            "https://lottie.host/dcead542-b6e2-4695-9057-5225e0b1209d/GLol0fd3I9.json",
+            repeat: true),
       ),
     );
   }
