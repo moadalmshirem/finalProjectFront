@@ -1,16 +1,19 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:realeestateapp/Data/carouselSliderData.dart';
+
 import 'package:realeestateapp/widgets/CarouselSlider.dart';
+import 'package:realeestateapp/widgets/GridItem.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
-  const HomeScreen({super.key });
+  HomeScreen({super.key});
 
   @override
   ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends ConsumerState<HomeScreen> with TickerProviderStateMixin {
+class _HomeScreenState extends ConsumerState<HomeScreen>
+    with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return AnimatedSize(
@@ -22,18 +25,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with TickerProviderStat
           child: Container(
             decoration: BoxDecoration(
               color: const Color.fromARGB(255, 6, 75, 102),
-              borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+              borderRadius:
+                  const BorderRadius.vertical(bottom: Radius.circular(30)),
             ),
             child: AppBar(
               automaticallyImplyLeading: false,
               backgroundColor: Colors.transparent,
               title: Text(
-                "الصفحة الرئيسة ",
+                "الصفحة الرئيسة",
                 style: TextStyle(
-                  color: Colors.grey.shade200,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
+                    color: Colors.grey.shade200,
+                    fontSize: 28,
+                    fontFamily: "Cairo",
+                    fontWeight: FontWeight.w500),
               ),
               toolbarHeight: 100,
             ),
@@ -50,10 +54,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with TickerProviderStat
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "تصفح الفئات ",
+                      "تصفح الفئات",
                       style: TextStyle(
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                        fontFamily: "Cairo",
+                        fontWeight: FontWeight.w500,
                         color: const Color.fromARGB(255, 6, 75, 102),
                       ),
                     ),
@@ -74,20 +79,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with TickerProviderStat
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
                           _buildCategoryCard("منازل"),
-                          SizedBox
-                          (
-                            width: 25,
-                          ),
+                          SizedBox(width: 25),
                           _buildCategoryCard("فلل"),
-                          SizedBox(
-                                                        width: 25,
-
-                          ),
+                          SizedBox(width: 25),
                           _buildCategoryCard("إستراحات"),
-                          SizedBox(
-                                                        width: 25,
-
-                          ),
+                          SizedBox(width: 25),
                           _buildCategoryCard("شقق"),
                         ],
                       ),
@@ -95,30 +91,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with TickerProviderStat
                   ),
                 ),
               ),
-              const SizedBox(height: 35),
-              Container(
-                height: 200, 
-                margin: const EdgeInsets.all(12),
-                child: GridView.builder(
-                  scrollDirection: Axis.horizontal,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 0.75,
-                  ),
-                  itemCount: 10, 
-                  itemBuilder: (context, index) {
-                    return Card(
-                      elevation: 4,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Center(
-                        child: Text("Item ${index + 1}"),
-                      ),
-                    );
-                  },
-                ),
+              GridItem(
+                gridItems: CarouselSliderData,
               ),
             ],
           ),
@@ -136,8 +110,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with TickerProviderStat
         border: Border.all(color: const Color.fromARGB(255, 6, 75, 102)),
       ),
       child: Center(
-        child: Text(title)
-      ),
+          child: Text(
+        title,
+        style: TextStyle(fontFamily: "Cairo", fontWeight: FontWeight.w600),
+      )),
     );
   }
 }

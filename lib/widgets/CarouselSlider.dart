@@ -6,13 +6,11 @@ import 'package:realeestateapp/Providers/selectedItemProvider.dart';
 import 'package:realeestateapp/Screens/Details_screen.dart';
 
 class CarouselSliderWidget extends ConsumerStatefulWidget {
-  const CarouselSliderWidget({Key? key}) : super(key: key);
+  CarouselSliderWidget({Key? key}) : super(key: key);
 
   @override
   _CarouselSliderWidgetState createState() => _CarouselSliderWidgetState();
 }
-
-
 
 int _currentIndex = 0;
 
@@ -30,11 +28,10 @@ class _CarouselSliderWidgetState extends ConsumerState<CarouselSliderWidget> {
                 builder: (BuildContext context) {
                   return InkWell(
                     onTap: () {
-                      
                       ref.read(selectedItemProvider.notifier).state = item;
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (ctx) => DetailScreen(
-                          selectedItem: item, 
+                          selectedItem: item,
                         ),
                       ));
                     },

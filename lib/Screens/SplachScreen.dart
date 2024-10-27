@@ -11,30 +11,27 @@ class Splachscreen extends StatefulWidget {
   State<Splachscreen> createState() => _SplachscreenState();
 }
 
-
 class _SplachscreenState extends State<Splachscreen> {
-
-  
-    @override
+  @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
-      Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>Authscreen()));
-         
+    Timer(Duration(milliseconds: 1950), () {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (ctx) => Authscreen()));
     });
-  } 
+  }
 
-@override
+  @override
   void dispose() {
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: LottieBuilder.network("https://lottie.host/00c13860-0806-40e8-8e01-dc6866934ab6/agBz1DcS3e.json"),
+        child: Lottie.network(
+            "https://lottie.host/dcead542-b6e2-4695-9057-5225e0b1209d/GLol0fd3I9.json"),
       ),
     );
   }

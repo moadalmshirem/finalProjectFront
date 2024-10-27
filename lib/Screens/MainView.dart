@@ -1,13 +1,13 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:realeestateapp/Data/carouselsliderList.dart';
 import 'package:realeestateapp/Screens/Chats.dart';
-import 'package:realeestateapp/Screens/Favorites.dart';
+import 'package:realeestateapp/Screens/BookMarks.dart';
+import 'package:realeestateapp/Screens/Details_screen.dart';
 import 'package:realeestateapp/Screens/Home.dart';
 import 'package:realeestateapp/Screens/ProfileScreen.dart';
 import 'package:realeestateapp/widgets/CustemNavBar.dart';
 import 'package:realeestateapp/Providers/SelectedPageIndexProvider.dart';
+import 'package:realeestateapp/widgets/Reservation.dart';
 
 class Mainview extends ConsumerStatefulWidget {
   const Mainview({super.key, required this.signinUsername});
@@ -33,8 +33,8 @@ class _MainViewState extends ConsumerState<Mainview> {
         },
         children: [
           HomeScreen(),
-          const FavoritesScreen(),
-          const ChatsScreen(),
+          BookMarks(),
+          ChatsScreen(),
           Profilescreen(username: widget.signinUsername.text),
         ],
       ),

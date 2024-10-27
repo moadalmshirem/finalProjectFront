@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
-   CardWidget({
+  CardWidget({
     super.key,
     required this.title,
     required this.trailing,
@@ -11,11 +10,10 @@ class CardWidget extends StatelessWidget {
 
   final String title;
   final Widget? trailing;
- final Function  oniconTapped ;
- 
+  final Function oniconTapped;
+
   @override
   Widget build(BuildContext context) {
-
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
       child: Padding(
@@ -23,7 +21,8 @@ class CardWidget extends StatelessWidget {
         child: Card(
           color: Colors.grey.shade100,
           child: Padding(
-            padding: const EdgeInsets.only(top: 10,bottom: 10,right: 6,left: 6),
+            padding:
+                const EdgeInsets.only(top: 10, bottom: 10, right: 6, left: 6),
             child: Row(
               textDirection: TextDirection.rtl,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,13 +31,13 @@ class CardWidget extends StatelessWidget {
                   child: ListTile(
                     title: Text(
                       title,
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: TextStyle(fontFamily: "Cairo"),
                       textDirection: TextDirection.rtl,
                     ),
                     trailing: InkWell(
                       child: trailing,
-                       onTap: () => oniconTapped(),
-                      ),
+                      onTap: () => oniconTapped(),
+                    ),
                   ),
                 ),
               ],

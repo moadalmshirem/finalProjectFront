@@ -1,51 +1,47 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:realeestateapp/Screens/AuthScreen.dart';
+import 'package:realeestateapp/Screens/SplachScreen.dart';
 import 'package:realeestateapp/widgets/cardWidget.dart';
 
 class Profilescreen extends StatefulWidget {
-  const Profilescreen({super.key ,required this.username});
-  final String username ;
+  const Profilescreen({super.key, required this.username});
+  final String username;
 
   @override
   State<Profilescreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<Profilescreen> {
-
   @override
   Widget build(BuildContext context) {
-      bool isSwitched = false;
+    bool isSwitched = false;
 
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
-      appBar:   PreferredSize(
+      appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
         child: Container(
           decoration: BoxDecoration(
-            color:Color.fromARGB(255, 6, 75, 102),
-            borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+            color: Color.fromARGB(255, 6, 75, 102),
+            borderRadius:
+                const BorderRadius.vertical(bottom: Radius.circular(30)),
           ),
           child: AppBar(
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.transparent, 
+            backgroundColor: Colors.transparent,
             title: Text(
               "الإعدادات",
-             
               style: TextStyle(
-              color: Colors.grey.shade200,
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: Colors.grey.shade200,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Cairo"),
             ),
             toolbarHeight: 100,
-            
           ),
         ),
       ),
       body: SingleChildScrollView(
-
         child: Column(
           children: [
             SizedBox(
@@ -53,48 +49,45 @@ class _ProfileScreenState extends State<Profilescreen> {
             ),
             CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage("assets/images/user.png",),
+              backgroundImage: AssetImage(
+                "assets/images/user.png",
+              ),
             ),
-
-            SizedBox(child: Text(
-              style: TextStyle(
-                fontSize: 21,
-
-              ),
+            SizedBox(
+                child: Text(
+              style: TextStyle(fontSize: 21, fontFamily: "Cairo"),
               widget.username,
-              )),
-              SizedBox(
-                height: 10,
-              ),
+            )),
+            SizedBox(
+              height: 10,
+            ),
             CardWidget(
-              title: 'تسجيل الخروج ',trailing:Transform.rotate
-            
-              (
-                angle:  270 * 3.1415926535 / 180,
-                
-                
-                child: Icon(CupertinoIcons.share , color: Colors.redAccent.shade700,)) ,
-              oniconTapped: (){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (ctx)=>Authscreen()));
+              title: 'تسجيل الخروج ',
+              trailing: Transform.rotate(
+                  angle: 270 * 3.1415926535 / 180,
+                  child: Icon(
+                    CupertinoIcons.share,
+                    color: Colors.redAccent.shade700,
+                  )),
+              oniconTapped: () {
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (ctx) => Splachscreen()));
               },
+            ),
+            CardWidget(
+              title: "الوضع المظلم",
+              trailing: CupertinoSwitch(
+                value: isSwitched,
+                onChanged: (bool value) {
+                  setState(() {
+                    isSwitched = value;
+                  });
+                },
               ),
-
-
-CardWidget(
-  title: "الوضع المظلم",
-  trailing: CupertinoSwitch(
-    value: isSwitched,
-    onChanged: (bool value) {
-      setState(() {
-        isSwitched = value;
-      });
-    },
-  ),
-  oniconTapped: () {
-    setState(() {
-    });
-  },
-),
+              oniconTapped: () {
+                setState(() {});
+              },
+            ),
           ],
         ),
       ),

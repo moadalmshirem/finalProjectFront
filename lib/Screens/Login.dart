@@ -52,12 +52,25 @@ class _LoginPageState extends State<LoginPage> {
           builder: (context) => Dialog(
             backgroundColor: Colors.transparent,
             child: Center(
-              child: SizedBox(
-                width: 150,
-                height: 150,
+              child: Container(
+                width: 300,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(0, 0, 0, 0),
+                      blurRadius: 20,
+                      offset: const Offset(0, 10),
+                    ),
+                  ],
+                ),
                 child: Lottie.network(
                   repeat: false,
-                  'https://lottie.host/85cf1e95-d523-4f86-9c5f-02e8bf6bdccf/vSMazmro0x.json',
+                  'https://lottie.host/5fdbfb4e-35d3-4c28-bda4-2baf4e9318f2/xcUo4LYxmg.json',
+                  width: 200,
+                  height: 200,
                 ),
               ),
             ),
@@ -74,32 +87,31 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     } catch (e) {
-      
       setState(() {
         _isLoading = false;
 
         showDialog(
           context: context,
-          barrierDismissible: false, 
+          barrierDismissible: false,
           builder: (context) => Dialog(
-            backgroundColor: Colors.transparent, 
+            backgroundColor: Colors.transparent,
             child: Center(
               child: Container(
                 width: 300,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.white, 
-                  borderRadius: BorderRadius.circular(20), 
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
+                      color: const Color.fromARGB(0, 0, 0, 0),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
-                  ], 
+                  ],
                 ),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min, 
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     const Padding(
                       padding: EdgeInsets.all(8.0),
@@ -108,8 +120,9 @@ class _LoginPageState extends State<LoginPage> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
+                          fontFamily: "Cairo",
                           fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 48, 4, 1), 
+                          color: Color.fromARGB(255, 48, 4, 1),
                         ),
                       ),
                     ),
@@ -118,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                       'https://lottie.host/e2e0c0bc-070d-4d34-9c6f-45d755f56b74/oAdycL7QvB.json',
                       width: 150,
                       height: 150,
-                      repeat: false, 
+                      repeat: false,
                     ),
                   ],
                 ),
@@ -127,9 +140,9 @@ class _LoginPageState extends State<LoginPage> {
           ),
         );
 
-       Future.delayed(const Duration(milliseconds:2000 )).then((_) {
-  Navigator.of(context).pop(); 
-});
+        Future.delayed(const Duration(milliseconds: 2000)).then((_) {
+          Navigator.of(context).pop();
+        });
       });
     }
   }
@@ -161,10 +174,14 @@ class _LoginPageState extends State<LoginPage> {
     return const Column(
       children: [
         Text(
-    "مرحبا مجدداً",
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          "مرحبا مجدداً",
+          style: TextStyle(
+              fontSize: 40, fontWeight: FontWeight.w700, fontFamily: "Cairo"),
         ),
-        Text("سجل بيانات الدخول إلى حسابك "),
+        Text(
+          "سجل بيانات الدخول إلى حسابك ",
+          style: TextStyle(fontFamily: "Cairo", fontWeight: FontWeight.w300),
+        ),
       ],
     );
   }
@@ -181,6 +198,7 @@ class _LoginPageState extends State<LoginPage> {
                 textDirection: TextDirection.ltr,
                 decoration: InputDecoration(
                   hintText: "إسم المستخدم",
+                  hintStyle: TextStyle(fontFamily: "Cairo", fontSize: 15),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(18),
                     borderSide: BorderSide.none,
@@ -195,6 +213,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller: _passwordController,
                 decoration: InputDecoration(
                   hintText: "رمز الدخول",
+                  hintStyle: TextStyle(fontFamily: "Cairo", fontSize: 15),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(18),
                     borderSide: BorderSide.none,
@@ -213,12 +232,10 @@ class _LoginPageState extends State<LoginPage> {
                     child: const Text(
                       "نسيت رمز الدخول؟",
                       style: TextStyle(
-                        color:  Color.fromARGB(255, 6, 75, 102),
-
-
-                        fontWeight: FontWeight.bold,
-                        fontSize: 12,
-                      ),
+                          color: Color.fromARGB(255, 6, 75, 102),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 10,
+                          fontFamily: "Cairo"),
                     ),
                   ),
                 ],
@@ -238,7 +255,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       child: const Text(
                         "تسجيل الدخول",
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontFamily: "Cairo"),
                       ),
                     ),
                   ),
@@ -246,7 +266,10 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text("ليس لديك حساب ؟ "),
+                      const Text(
+                        "ليس لديك حساب ؟ ",
+                        style: TextStyle(fontFamily: "Cairo"),
+                      ),
                       TextButton(
                         onPressed: () {
                           widget.pageController.animateToPage(1,
@@ -255,8 +278,11 @@ class _LoginPageState extends State<LoginPage> {
                         },
                         child: const Text(
                           "سجل من هنا",
-                          style: TextStyle(color:Color.fromARGB(255, 6, 75, 102),
-                           fontWeight: FontWeight.bold,),
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 6, 75, 102),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Cairo",
+                              fontSize: 12),
                         ),
                       ),
                     ],
