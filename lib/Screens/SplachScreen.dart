@@ -12,10 +12,12 @@ class Splachscreen extends StatefulWidget {
 }
 
 class _SplachscreenState extends State<Splachscreen> {
+  Timer? _timer;
+
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 2300), () {
+    _timer = Timer(const Duration(milliseconds: 2300), () {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (ctx) => Authscreen()));
     });
@@ -23,6 +25,7 @@ class _SplachscreenState extends State<Splachscreen> {
 
   @override
   void dispose() {
+    _timer?.cancel();
     super.dispose();
   }
 

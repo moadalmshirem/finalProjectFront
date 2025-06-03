@@ -12,9 +12,10 @@ class Profilescreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<Profilescreen> {
+  bool isSwitched = false;
+
   @override
   Widget build(BuildContext context) {
-    bool isSwitched = false;
 
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
